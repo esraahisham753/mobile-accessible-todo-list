@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/dist/css/styles.min.css" />
+    <title>To Do App</title>
+  </head>
+  <body>
+    <main>
+      <section class="newItem">
+        <form action="#" id="addItem">
+          <label for="itemInput">Add a new item</label>
+          <input
+            type="text"
+            id="itemInput"
+            placeholder="new item"
+            aria-label="Input new item to the list here" />
+          <button
+            id="add"
+            class="button"
+            title="Add new item"
+            aria-label="Add the item to the list">
+            +
+          </button>
+        </form>
+      </section>
+      <section class="list-container">
+        <div class="list-container__header">
+          <h1>To do list items</h1>
+          <button
+            id="clear"
+            class="button"
+            title="Clear list items"
+            aria-label="clear all iems in the list">
+            Clear
+          </button>
+        </div>
+        <ul id="items" class="list-container__items">
+          <li class="list-container__item">
+            <input type="checkbox" id="eat" /> <label for="eat">eat</label>
+          </li>
+          <li class="list-container__item">
+            <input type="checkbox" id="sleep" />
+            <label for="sleep">sleep</label>
+          </li>
+          <li class="list-container__item">
+            <input type="checkbox" id="code" /> <label for="code">code</label>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

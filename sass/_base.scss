@@ -1,0 +1,48 @@
+$default-fontcolor: #000;
+$background-color: #008DDA;
+$container-bgcolor: #FBF9F1;
+$container-bordercolor: #000; 
+
+$breakpoints: (
+    'medium': '40em',
+    'large': '71.875em',
+    'xlarge': '87.5em' 
+);
+
+@mixin breakpoint($size) {
+    @media only screen and (min-width: map-get($breakpoints, $size)) {
+        @content;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    color: $default-fontcolor;
+    width: 100%;
+    min-height: 100%;
+    
+    @include breakpoint(medium) {
+        font-size: 22px;
+    }
+}
+
+body {
+    background-color: $background-color;
+    padding: 20px;
+}
+
+section {
+    background-color: $container-bgcolor;
+    width: 90%;
+    max-width: 700px;
+    border: 1px solid $container-bordercolor;
+    border-radius: 15px;
+    margin: auto;
+}
