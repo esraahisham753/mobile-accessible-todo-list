@@ -29,11 +29,7 @@
 
         button {
             background-color: $button-addcolor;
-            border: 1px solid $input-text-bordercolor;
-            border-radius: 10px;
-            @include breakpoint(medium) {
-                font-size: 1.25rem;
-            }
+    
         }
     }
 }

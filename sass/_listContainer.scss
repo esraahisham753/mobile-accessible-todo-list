@@ -1,0 +1,24 @@
+.list-container {
+    min-height: 70vh;
+    padding: 0.75rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        button {
+            background-color: $button-clearcolor;
+            padding: 0 0.1rem;
+            margin-bottom: 0.1rem;
+
+            @include breakpoint(medium) {
+                padding:0 0.5rem;
+            }
+        }
+
+        hr {
+            width: 100%
+        }
+    }
+}
