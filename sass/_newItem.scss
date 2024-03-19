@@ -1,0 +1,17 @@
+.new-item {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+
+    form {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            width: 80%;
+            padding: 0.75rem;
+            font-size: 1.25rem;
+            border: 1px solid $input-text-bordercolor;
+            outline: none;
+        }
+    }
+}
