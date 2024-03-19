@@ -1,17 +1,39 @@
 .new-item {
     padding: 0.75rem;
     margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
 
     form {
         display: flex;
         justify-content: space-between;
 
-        input {
+        label {
+            position: absolute;
+            left: -10000px;
+        }
+
+        input[type="text"] {
             width: 80%;
             padding: 0.75rem;
             font-size: 1.25rem;
             border: 1px solid $input-text-bordercolor;
+            border-radius: 10px;
             outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="text"]:hover {
+            box-shadow: 4px 2px 5px #000;
+        }
+
+        button {
+            background-color: $button-addcolor;
+            border: 1px solid $input-text-bordercolor;
+            border-radius: 10px;
+            @include breakpoint(medium) {
+                font-size: 1.25rem;
+            }
         }
     }
 }
