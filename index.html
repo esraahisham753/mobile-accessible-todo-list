@@ -13,19 +13,23 @@
   </head>
   <body>
     <main>
-      <section class="newItem">
+      <section class="new-item">
         <form action="#" id="addItem">
           <label for="itemInput">Add a new item</label>
           <input
             type="text"
             id="itemInput"
             placeholder="new item"
-            aria-label="Input new item to the list here" />
+            aria-label="Input new item to the list here"
+            size="20"
+            autocomplete="off"
+            tabindex="0" />
           <button
             id="add"
             class="button"
             title="Add new item"
-            aria-label="Add the item to the list">
+            aria-label="Add the item to the list"
+            tabindex="0">
             +
           </button>
         </form>
@@ -37,20 +41,24 @@
             id="clear"
             class="button"
             title="Clear list items"
-            aria-label="clear all iems in the list">
+            aria-label="clear all iems in the list"
+            tabindex="0">
             Clear
           </button>
         </div>
+
         <ul id="items" class="list-container__items">
           <li class="list-container__item">
-            <input type="checkbox" id="eat" /> <label for="eat">eat</label>
+            <input type="checkbox" id="eat" tabindex="0" />
+            <label for="eat">eat</label>
           </li>
           <li class="list-container__item">
-            <input type="checkbox" id="sleep" />
+            <input type="checkbox" id="sleep" tabindex="0" />
             <label for="sleep">sleep</label>
           </li>
           <li class="list-container__item">
-            <input type="checkbox" id="code" /> <label for="code">code</label>
+            <input type="checkbox" id="code" tabindex="0" />
+            <label for="code">code</label>
           </li>
         </ul>
       </section>
