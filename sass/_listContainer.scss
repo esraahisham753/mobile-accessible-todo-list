@@ -1,24 +1,49 @@
 .list-container {
-    min-height: 70vh;
-    padding: 0.75rem;
+  min-height: 70vh;
+  padding: 0.75rem;
 
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
-        button {
-            background-color: $button-clearcolor;
-            padding: 0 0.1rem;
-            margin-bottom: 0.1rem;
+    button {
+      background-color: $button-clearcolor;
+      padding: 0 0.1rem;
+      margin-bottom: 0.1rem;
 
-            @include breakpoint(medium) {
-                padding:0 0.5rem;
-            }
-        }
-
-        hr {
-            width: 100%
-        }
+      @include breakpoint(medium) {
+        padding: 0 0.5rem;
+      }
     }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.75rem 0;
+    gap: 0.75rem;
+
+    input[type="checkbox"] {
+      min-width: 48px;
+      min-height: 48px;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:focus + label {
+        text-decoration: underline;
+    }
+
+    label {
+        font-size: 1.25rem;
+    }
+  }
 }
