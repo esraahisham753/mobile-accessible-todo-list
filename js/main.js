@@ -98,6 +98,8 @@ const addCheckEventListener = (checkEl) => {
     console.log(id);
     todolist.deleteItem(id);
     updateStorage(todolist.getList());
+    const labelText = event.target.nextElementSibling.textContent;
+    updateConfirmationContent(labelText, "removed");
     setTimeout(() => {
       refreshThePage();
     }, 1000);
@@ -113,14 +115,15 @@ const returnFocus = () => {
 };
 
 const processSubmit = () => {
-  console.log("Form submit");
   const newItem = inputEl.value.trim();
+  if (!newItem) return;
   const newid = getNextId();
   let newItemObj = new ToDoItem();
   newItemObj.setid(newid);
   newItemObj.setitem(newItem);
   todolist.addItem(newItemObj);
   updateStorage(todolist.getList());
+  updateConfirmationContent(newItem, "added");
   refreshThePage();
 };
 
@@ -131,4 +134,9 @@ const getNextId = () => {
   }
   const nextId = list.length ? list[list.length - 1].getid() + 1 : 1;
   return nextId;
+};
+
+const updateConfirmationContent = (inputText, action) => {
+  const confirmEl = document.getElementById("confirmation");
+  confirmEl.textContent = `${inputText} ${action}`;
 };
