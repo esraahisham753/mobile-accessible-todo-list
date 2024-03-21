@@ -124,7 +124,9 @@ const processSubmit = () => {
   todolist.addItem(newItemObj);
   updateStorage(todolist.getList());
   updateConfirmationContent(newItem, "added");
-  refreshThePage();
+  setTimeout(() => {
+    refreshThePage();
+  }, 1000)
 };
 
 const getNextId = () => {
