@@ -16,8 +16,37 @@ const initApp = () => {
     event.preventDefault();
     processSubmit();
   });
-  
+
+  const clearBtn = document.getElementById("clear");
+  clearBtn.addEventListener("click", (event) => {
+    const confirmed = confirm("Are you sure you want to delete all items?");
+    if (confirmed) {
+      todolist.clearList();
+      updateStorage(todolist.getList());
+      refreshThePage();
+    }
+  });
+
+  loadList();
   refreshThePage();
+};
+
+const loadList = () => {
+  const storageList = localStorage.getItem("todolist");
+  if (typeof storageList !== "string") {
+    return;
+  }
+  const parsedList = JSON.parse(storageList);
+  parsedList.forEach((itemObj) => {
+    let newItem = new ToDoItem();
+    newItem.setid(itemObj._id);
+    newItem.setitem(itemObj._item);
+    todolist.addItem(newItem);
+  });
+};
+
+const updateStorage = (list) => {
+  localStorage.setItem("todolist", JSON.stringify(list));
 };
 
 const refreshThePage = () => {
@@ -65,8 +94,10 @@ const buildTheItem = (item) => {
 
 const addCheckEventListener = (checkEl) => {
   checkEl.addEventListener("click", (event) => {
-    const id = checkEl.id;
+    const id = event.target.id;
+    console.log(id);
     todolist.deleteItem(id);
+    updateStorage(todolist.getList());
     setTimeout(() => {
       refreshThePage();
     }, 1000);
@@ -87,13 +118,17 @@ const processSubmit = () => {
   const newid = getNextId();
   let newItemObj = new ToDoItem();
   newItemObj.setid(newid);
-  newItemObj._item = newItem;
+  newItemObj.setitem(newItem);
   todolist.addItem(newItemObj);
+  updateStorage(todolist.getList());
   refreshThePage();
 };
 
 const getNextId = () => {
   const list = todolist.getList();
-  const nextId = list.length ? list[list.length - 1].id + 1 : 1;
+  if (list.length) {
+    console.log(list[list.length - 1]);
+  }
+  const nextId = list.length ? list[list.length - 1].getid() + 1 : 1;
   return nextId;
 };

@@ -18,11 +18,6 @@ export default class TodoList {
   deleteItem(id) {
     const list = this._list;
 
-    for (let i = 0; i < list.length; i++) {
-      if (i == id) {
-        list.splice(i, 1);
-        break;
-      }
-    }
+    this._list = list.filter((item) => item._id != id);
   }
 }

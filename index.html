@@ -37,7 +37,7 @@
       </section>
       <section class="list-container">
         <div class="list-container__header">
-          <h1>To do list items</h1>
+          <h1 tabindex="0">To do list items</h1>
           <button
             id="clear"
             class="button"
@@ -49,6 +49,7 @@
         </div>
         <hr />
         <ul id="items" class="list-container__items">
+          <!--
           <li class="list-container__item">
             <input type="checkbox" id="1" tabindex="0" />
             <label for="eat">eat</label>
@@ -61,7 +62,9 @@
             <input type="checkbox" id="3" tabindex="0" />
             <label for="code">code</label>
           </li>
+          -->
         </ul>
+        <p id="confirmation" class="confirmation" aria-live="assertive"></p>
       </section>
     </main>
   </body>
